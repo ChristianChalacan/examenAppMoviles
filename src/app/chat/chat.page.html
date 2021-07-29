@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="blueryb">
+    <ion-title class="userName">Usuario: {{messageData.name}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="aliceblue">
+  <ion-card *ngFor="let messageData of messageList" color="azure">
+    <ion-card-header>
+      usuario: {{messageData.name}} 
+    </ion-card-header>
+    <ion-card-content>
+      {{messageData.message}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer  color="blueryb">
+  
+  <ion-toolbar color="blueryb">
+    <ion-input placeholder="Escribir mensaje"  [(ngModel)]="messageData.message"></ion-input>
+
+    <ion-buttons slot="end" >
+      <ion-button (click)="CreateRecord()">
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" >
+      <ion-button (click)="getCurrentCoordinates()">
+        <ion-icon name="planet"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-buttons>
+      <input type="file" (change)="uploadImage($event.target.files)" />
+      <ion-icon name="images" ></ion-icon>
+    </ion-buttons>
+
+  </ion-toolbar>
+  <div class="submit-btn">
+    <ion-button (click)="logout()" color="brinkpink">
+      Cerrar sesión
+    </ion-button>
+  </div>
+</ion-footer>
